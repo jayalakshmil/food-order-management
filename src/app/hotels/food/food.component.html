@@ -1,0 +1,15 @@
+    
+   <div class="container">
+   <div class="row">
+    <div class="col-xl-5">
+      <app-food-list  *ngFor="let food of foodMenu" [foodMenu] = "food"></app-food-list>
+    </div>
+    <div class="col-xl-5">
+        <app-food-details *ngIf="selectedMenu; else infoText" [foodMenu]="selectedMenu"></app-food-details>
+
+        <ng-template #infoText>
+              <p>Please Select a Menu!</p>
+        </ng-template>
+    </div>
+</div>
+</div>

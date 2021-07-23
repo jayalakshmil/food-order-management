@@ -1,0 +1,20 @@
+input[type=text] {
+    border: 2px solid rgb(240, 186, 87);
+    border-radius: 4px;
+  }
+  input[type=password] {
+    border: 2px solid rgb(240, 186, 87);
+    border-radius: 4px;
+  }
+  input[type=email] {
+    border: 2px solid rgb(240, 186, 87);
+    border-radius: 4px;
+  }
+  input[type=conformpassword] {
+    border: 2px solid rgb(240, 186, 87);
+    border-radius: 4px;
+  }
+  input[type=checkbox] {
+    border: 2px solid rgb(240, 186, 87);
+    border-radius: 4px;
+  }

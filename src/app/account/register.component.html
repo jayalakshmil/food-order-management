@@ -1,0 +1,55 @@
+<div class="d-flex justify-content-center">
+    <div class="card m-3">
+        <h4 class="card-header" style="text-align: center; background-color: burlywood;"><i> {{ title }} </i> </h4>
+        <div class="card-body">
+            <form [formGroup]="myFormModel"
+            (ngSubmit)="onSubmit()" >
+             <div class="form-row">
+                <div class="form-group col-5">
+                    <label>First Name</label>
+                    <input type="text" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" required  class="form-control">
+                </div>
+                <div class="form-group col-5">
+                    <label for="username">Username</label>
+                    <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Username is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-5" >
+                    <label>Phone number</label>
+                    <input type="text"  formControlName="phonenumber" [ngClass]="{ 'is-invalid': submitted && f.phonenumber.errors }" required class="form-control">
+                </div>
+            <div class="form-group col-10">
+                <label>Email</label>
+                <input type="text"  formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required class="form-control">
+            </div>
+
+            
+             </div>
+                <div class="form-row">
+                    <div class="form-group col-5">
+                        <label>Password</label>
+                        <input type="password" formControlName="password"[ngClass]="{ 'is-invalid': submitted && f.password.errors }" required class="form-control">
+
+                    </div>
+                    <div class="form-group col-5">
+                        <label>Confirm Password</label>
+                        <input type="password" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" required class="form-control">
+                    </div>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" formControlName="acceptTerms">
+                    <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+                    <div *ngIf="submitted && myFormModel.get('acceptTerms').errors" required class="invalid-feedback">Accept Ts & Cs is required</div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-light mr-1" >Register</button>
+                    <button class="btn btn-secondary" type="reset" (click)="onReset()">Clear</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>

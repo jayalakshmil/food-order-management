@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-xs-12">
+    <img src="{{foodMenu.images}}" alt="{{foodMenu.name}}" class="img-responsive">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{foodMenu.name}}</h1>
+  </div>
+</div>
+
+<div class="row text-center mb-1">
+  <div class="col-12">
+    <button class="btn btn-sm btn-info" (click)="addToCart(foodMenu)">Add to Cart</button>
+  </div>
+</div>
+
+<div class="col-xl-12">
+  <div class="card">
+    <div class="card-header bg-warning">
+      <div *ngIf="foodList.length == 0">You have no items in your basket</div>
+      <div *ngIf="foodList.length == 1">You have {{foodList.length}} item in your basket</div>
+      <div *ngIf="foodList.length > 1">You have {{foodList.length}} items in your basket</div>
+
+    </div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-xl-10">
+          <div class="text-danger" *ngIf="errorItem">
+            You have already this item in your list
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-10">
+          <!--Table to hold the item add in the cart-->
+          <table class="table table-borderless">
+            <thead>
+              <!--table head-->
+              <tr>
+                <!--table row-->
+                <th>Name</th>
+                <!--table heading-->
+                <th>Amount</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <!--table body-->
+              <tr *ngFor="let food of foodList">
+                <td>{{food.name}} </td>
+                <td>{{food.price}} </td>
+                <td>
+                  <button class="btn btn-info btn-sm" title="Remove Item" (click)="removeItem(food)"><i
+                      class="fa fa-trash fa-1x"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer bg-light-gray  text-left">
+      Total Amount: $ {{total()}}
+      <button  class="btn btn-sm btn-success" (click)="placeOrder()">Place Order</button>
+    </div>
+
+    <div class="row text-center mb-1">
+      <div class="col-12">
+      </div>
+    </div>
+
+
+  </div>
+</div>
